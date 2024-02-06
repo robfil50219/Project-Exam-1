@@ -1,37 +1,8 @@
-#hamburger-menu {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-}
-
 header {
+    background-color: #808080; 
+    color: white; 
     display: flex;
-    align-items: center;
-}
-
-nav ul {
-    list-style-type: none;
-    display: none; /* Initially hide the menu */
-}
-
-nav ul li {
-    padding: 8px;
-    margin: 0;
-}
-
-/* CSS for the hamburger icon if not using an image */
-.hamburger-icon {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background-color: black;
-    margin: 6px 0;
-}
-
-#hamburger-menu {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
+    justify-content: space-between;
+    align-items: center; 
+    padding: 10px 20px; 
 }
