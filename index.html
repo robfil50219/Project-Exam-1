@@ -5,30 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jouerney With Rob</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/nav.js" defer></script>
   </head>
   <body>
-    <header>
+    <header><h1>
+      <button id="hamburger-menu" aria-label="Open navigation menu">
+        <img src="icons/Hamburger.png" alt="Menu" />
+      </button>
       <h1>Welcome to Journey With Rob</h1>
-        <button id="hamburger-menu" aria-label="Open navigation menu">
-            <img src="icons/Hamburger.png" alt="Menu"> 
-      <nav>
-        <ul>
-            <li><a herf="index.html">Home</a></li>
-            <li><a herf="index.html">About</a></li>
-            <li><a herf="index.html">Blog</a></li>
-            <li><a herf="index.html">Contact</a></li>
-        </ul>
-      </nav>
-      <button id="home-button"><a href="index.html">Home</a></button> 
-      <img src="icons/Home.png" alt="Home button"> 
+      <button id="home-button" class="image-button">
+        <a href="index.html" aria-label="Home">
+          <img src="icons/Home.png" alt="Home button" />
+        </a>
+      </button>
     </header>
     <main>
-      <div class="image-container">
-        <img src="" alt="Description of the image">
+      <nav id="menu" class="menu-hidden">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="banner-container">
+        <div class="banner">
+          <div class="banner-overlay"></div>
+            <div class="banner-text">
+                <h2>Welcome to the Coded Chronicles: My Adventure at Noroff</h2>
+                <p>Hey there! I’m Robert, your friendly neighborhood front-end development student, currently deep in the digital trenches at Noroff. This blog is more than just a collection of code snippets and caffeine-fueled late-night tales (though there’s plenty of that). It’s a journey through the matrix of front-end development, where each line of code is a step closer to mastery, and every semicolon (missed or otherwise) is a learning curve.</p>
+                <p>Here, I’ll share the highs, the lows, and the “Aha!” moments of my student life. From the first "Hello, World!" to the intricate dance of CSS and JavaScript, it's all about transforming confusion into clarity, one pixel at a time. Expect tips, tricks, and honest insights into the life of a student navigating the exciting world of front-end development.</p>
+                <p>Whether you’re a fellow student, a seasoned pro, or just curious about what the heck front-end development really is, there’s something here for everyone. So, grab a cup of your preferred code fuel, get comfy, and join me on this adventure. Who knows? You might just catch the coding bug too!</p>
+            </div>
+            <img src="Images/code.jpg" alt="Javascript on a laptop" />
+        </div>
     </div>
-
+        <div class="grey-line"></div>
+        <div class="post-container">
+          <h2>New Post</h2>
+          <img src="Images/Frustrated.jpg" alt="Frustrated an working on his laptop">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec mauris sed lorem...</p>
+      </div>
       
-    </main>
+      </main>
     <footer></footer>
   </body>
 </html>
