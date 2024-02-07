@@ -6,9 +6,10 @@
     <title>Jouerney With Rob</title>
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/nav.js" defer></script>
+    <script src="js/carousel.js" defer></script>
   </head>
   <body>
-    <header><h1>
+    <header>
       <button id="hamburger-menu" aria-label="Open navigation menu">
         <img src="icons/Hamburger.png" alt="Menu" />
       </button>
@@ -19,35 +20,92 @@
         </a>
       </button>
     </header>
+    <div id="carousel" class="carousel">
+      <div class="image-group active">
+        <img src="Images/code-man.jpg" alt="Image 1" />
+        <img src="Images/code-man.jpg" alt="Image 2" />
+        <img src="Images/code-man.jpg" alt="Image 3" />
+        <img src="Images/code-man.jpg" alt="Image 4" />
+      </div>
+      <div class="image-group">
+        <img src="Images/Frustrated.jpg" alt="Image 5" />
+        <img src="Images/Frustrated.jpg" alt="Image 6" />
+        <img src="Images/Frustrated.jpg" alt="Image 7" />
+        <img src="Images/Frustrated.jpg" alt="Image 8" />
+      </div>
+    </div>
     <main>
       <nav id="menu" class="menu-hidden">
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="blog.html">Blog</a></li>
-            <li><a href="contact.html">Contact</a></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
-    </nav>
-    <div class="banner-container">
-        <div class="banner">
-          <div class="banner-overlay"></div>
-            <div class="banner-text">
-                <h2>Welcome to the Coded Chronicles: My Adventure at Noroff</h2>
-                <p>Hey there! I’m Robert, your friendly neighborhood front-end development student, currently deep in the digital trenches at Noroff. This blog is more than just a collection of code snippets and caffeine-fueled late-night tales (though there’s plenty of that). It’s a journey through the matrix of front-end development, where each line of code is a step closer to mastery, and every semicolon (missed or otherwise) is a learning curve.</p>
-                <p>Here, I’ll share the highs, the lows, and the “Aha!” moments of my student life. From the first "Hello, World!" to the intricate dance of CSS and JavaScript, it's all about transforming confusion into clarity, one pixel at a time. Expect tips, tricks, and honest insights into the life of a student navigating the exciting world of front-end development.</p>
-                <p>Whether you’re a fellow student, a seasoned pro, or just curious about what the heck front-end development really is, there’s something here for everyone. So, grab a cup of your preferred code fuel, get comfy, and join me on this adventure. Who knows? You might just catch the coding bug too!</p>
-            </div>
-            <img src="Images/code.jpg" alt="Javascript on a laptop" />
+      </nav>
+      <a href="post.html" class="post-link">
+        <div class="new-post-container">
+          <div class="new-post-content">
+            <h2>New Post</h2>
+            <img
+              src="Images/Frustrated.jpg"
+              alt="Frustrated man working on his laptop"
+            />
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
+              nec mauris sed lorem...
+            </p>
+          </div>
         </div>
-    </div>
-        <div class="grey-line"></div>
-        <div class="post-container">
-          <h2>New Post</h2>
-          <img src="Images/Frustrated.jpg" alt="Frustrated an working on his laptop">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec mauris sed lorem...</p>
+      </a>
+      <div class="container">
+        <div class="latest-posts-container">
+          <h3>Latest Posts</h3>
+          <div class="latest-post">
+            <img src="Images/Frustrated.jpg" alt="Post Image" />
+            <div class="latest-text-container">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="latest-posts-container">
+          <div class="latest-post">
+            <img src="Images/Frustrated.jpg" alt="Post Image" />
+            <div class="latest-text-container">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="latest-posts-container">
+          <div class="latest-post">
+            <img src="Images/Frustrated.jpg" alt="Post Image" />
+            <div class="latest-text-container">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="latest-posts-container">
+          <div class="latest-post">
+            <img src="Images/Frustrated.jpg" alt="Post Image" />
+            <div class="latest-text-container">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-      
-      </main>
+    </main>
     <footer></footer>
   </body>
 </html>
