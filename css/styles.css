@@ -302,7 +302,28 @@ button {
 }
 
 
-  
+  /*about me*/ 
+
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.about-content h1, .about-content h2 {
+    color: #333;
+}
+
+.profile-photo {
+    max-width: 200px;
+    height: auto;
+    margin: 20px 0;
+}
+
+.about-me, .my-mission, .my-work, .contact-me {
+    margin-bottom: 40px;
+}
+
   
 
 

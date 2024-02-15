@@ -6,8 +6,8 @@
     <title>All Posts</title>
     <link rel="stylesheet" href="css/styles.css" />
     <script src="js/nav.js" defer></script>
-    <script src="js/carousel.js" defer></script>
     <script src="js/loadmore.js" defer></script>
+    <script src="js/sortbutton.js" defer></script>
   </head>
   <body>
     <header>
@@ -29,6 +29,13 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <div class="sort-container" style="text-align: center; margin: 20px 0">
+      <label for="sortPosts">Sort by:</label>
+      <select id="sortPosts">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+      </select>
+    </div>
     <main>
       <div class="posts-container" id="postsContainer">
         <!-- Posts will be inserted here dynamically -->
