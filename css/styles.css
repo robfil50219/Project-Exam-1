@@ -55,12 +55,6 @@ header {
   text-align: left; 
 }
 
-/* Additional empty section style if needed */
-.footer-section:last-child {
-  
-}
-
-
 
 h1 {
     text-align: center; 
@@ -148,6 +142,7 @@ button {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    border-bottom: 1px solid black;
   }
   
   .image-group img {
@@ -165,10 +160,6 @@ button {
     transform: scale(1.1);
     z-index: 2;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); 
-  }
-  .carousel img:hover {
-    transform: scale(1.1); 
-    z-index: 2; 
   }
   
   .image-group:not(.active) {
@@ -192,8 +183,6 @@ button {
     padding: 10px;   
     font-size: 14px; 
     margin: 20px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
     transition: transform 0.3s;
 
 }
@@ -281,8 +270,83 @@ button {
 }
   
 
+/*Contact Us*/ 
+
+.contact-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.contact-form {
+  margin-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
 
   
   
 
 
+/*Post page*/ 
+
+.post {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    margin: auto; 
+    max-width: 800px; 
+    width: 100%;
+  }
+
+.post-header, .post-content, .post-footer {
+  margin-bottom: 20px;
+}
+
+.post-title {
+  margin-bottom: 10px;
+}
+
+.post-meta {
+  font-style: italic;
+  color: #666;
+}
+
+.post-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.related-posts ul, .comments {
+  list-style-type: none;
+  padding: px;
+}
+
+.related-posts li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.related-posts h3, .comments h3 {
+  margin-bottom: 15px;
+}
