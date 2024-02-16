@@ -28,6 +28,10 @@
         height: auto;  
   }
 
+  .contact-page {
+    width: 90%; 
+    transform: none;
+  }
 
   .about-content, .profile-photo {
     width: 100%; 
