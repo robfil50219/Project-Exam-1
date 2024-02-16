@@ -263,24 +263,114 @@ button {
   padding: 20px;
 }
 
+/* General Styles for the Blog Post */
 .post {
-  max-width: 280px;
-  text-align: center;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
-.post img {
-  max-width: 100%;
+.post-header,
+.post-footer {
+  margin-bottom: 20px;
+}
+
+.post-title {
+  font-size: 24px;
+  color: #333;
+}
+
+.post-meta {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Styles for the Post Image and Caption */
+.post-image img {
+  width: 100%;
   height: auto;
-  border-radius: 10px 10px 0 0;
+  border-radius: 5px;
 }
 
-.post p {
-  padding: 15px;
+.post-image figcaption {
+  font-size: 12px;
+  color: #888;
+  text-align: center;
+  margin-top: 5px;
 }
+
+/* Styles for the Post Content */
+.post-content {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #444;
+}
+
+.post-content p {
+  margin-bottom: 15px;
+}
+
+/* Comments Section Styling */
+.comments {
+  border-top: 1px solid #e1e1e1;
+  padding-top: 20px;
+}
+
+.comment-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comment {
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.comment-author {
+  font-weight: bold;
+}
+
+.comment-content {
+  margin-top: 5px;
+}
+
+/* Form Styles */
+.comment-form {
+  margin-top: 20px;
+}
+
+.comment-form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comment-form input,
+.comment-form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.comment-form button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #0056b3;
+}
+
 
 /*All Posts*/ 
 
