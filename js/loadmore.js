@@ -1,11 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
     const postsContainer = document.getElementById('postsContainer');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
-    
-    let loadLimit = 10; // Change to 10 posts to load each time
-    let loadedPosts = 0; // Counter for the number of loaded posts
+    const showLessBtn = document.getElementById('showLessBtn'); 
 
-    // Function to create a dummy post
+    let loadLimit = 10;
+    let loadedPosts = 0;
+    let initialLoad = 10; // Initial number of posts to show
+
+    showLessBtn.style.display = 'none';
+
     function createPost() {
         const postDiv = document.createElement('div');
         postDiv.className = 'post';
@@ -13,28 +16,39 @@ document.addEventListener('DOMContentLoaded', () => {
         return postDiv;
     }
 
-    // Function to load posts
     function loadPosts() {
-        // Calculate how many posts to load to not exceed 20 total
         let postsToLoad = Math.min(loadLimit, 20 - loadedPosts);
         for (let i = 0; i < postsToLoad; i++) {
             const post = createPost();
             postsContainer.appendChild(post);
             loadedPosts++;
         }
-        // Hide the "Load More" button if 20 posts are loaded
         if (loadedPosts >= 20) {
             loadMoreBtn.style.display = 'none';
         }
+        if (loadedPosts > initialLoad) {
+            showLessBtn.style.display = 'inline'; // Show the Show Less button
+        }
     }
 
-    // Initially load the first set of 10 posts
-    loadPosts();
+    function removePosts() {
+        while (loadedPosts > initialLoad) {
+            if (postsContainer.lastChild) {
+                postsContainer.removeChild(postsContainer.lastChild);
+                loadedPosts--;
+            }
+        }
+        showLessBtn.style.display = 'none'; // Hide the Show Less button
+        if (loadedPosts < 20) {
+            loadMoreBtn.style.display = 'inline'; 
+        }
+    }
 
-    // Load more posts on button click
-    loadMoreBtn.addEventListener('click', () => {
-        loadPosts();
-    });
+    loadPosts(); // Initially load the first set of posts
+
+    loadMoreBtn.addEventListener('click', loadPosts); 
+    showLessBtn.addEventListener('click', removePosts); 
 });
+
 
 

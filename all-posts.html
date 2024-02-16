@@ -8,6 +8,7 @@
     <script src="js/nav.js" defer></script>
     <script src="js/loadmore.js" defer></script>
     <script src="js/sortbutton.js" defer></script>
+    <script src="js/carousel.js" defer></script>
   </head>
   <body>
     <header>
@@ -29,6 +30,21 @@
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+    <div id="carousel" class="carousel">
+      <h3>Daily Photos</h3>
+      <div class="image-group active">
+        <img src="Images/code-man.jpg" alt="Image 1" />
+        <img src="Images/code-man.jpg" alt="Image 2" />
+        <img src="Images/code-man.jpg" alt="Image 3" />
+        <img src="Images/code-man.jpg" alt="Image 4" />
+      </div>
+      <div class="image-group">
+        <img src="Images/Frustrated.jpg" alt="Image 5" />
+        <img src="Images/Frustrated.jpg" alt="Image 6" />
+        <img src="Images/Frustrated.jpg" alt="Image 7" />
+        <img src="Images/Frustrated.jpg" alt="Image 8" />
+      </div>
+    </div>
     <div class="sort-container" style="text-align: center; margin: 20px 0">
       <label for="sortPosts">Sort by:</label>
       <select id="sortPosts">
@@ -37,10 +53,11 @@
       </select>
     </div>
     <main>
-      <div class="posts-container" id="postsContainer">
+      <div class="all-posts-container" id="postsContainer">
         <!-- Posts will be inserted here dynamically -->
       </div>
       <button id="loadMoreBtn">Load More</button>
+      <button id="showLessBtn">Show Less</button>
     </main>
     <footer class="site-footer">
       <div class="footer-grid">
@@ -49,13 +66,13 @@
         </div>
         <div class="footer-section social-icons">
           <a href="https://instagram.com" target="_blank"
-            ><img src="path/to/instagram-logo.svg" alt="Instagram"
+            ><img src="Images/instagram.png" alt="Instagram"
           /></a>
           <a href="https://facebook.com" target="_blank"
-            ><img src="path/to/facebook-logo.svg" alt="Facebook"
+            ><img src="Images/facebook.png" alt="Facebook"
           /></a>
           <a href="your-link-for-x" target="_blank"
-            ><img src="path/to/x-logo.svg" alt="X"
+            ><img src="Images/x.png" alt="X"
           /></a>
         </div>
         <div class="footer-section"></div>
