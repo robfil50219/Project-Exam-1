@@ -1,66 +1,69 @@
 document.addEventListener('DOMContentLoaded', function() {
     const postsContainer = document.getElementById('postsContainer');
-    const loadMoreBtn = document.createElement('button');
-    loadMoreBtn.textContent = 'Load More';
-    const showLessBtn = document.createElement('button');
-    showLessBtn.textContent = 'Show Less';
-    showLessBtn.style.display = 'none'; 
+    const loadMoreBtn = document.getElementById('loadMoreBtn');
+    const showLessBtn = document.getElementById('showLessBtn');
 
     let loadedPosts = 0;
-    const initialLoad = 10; 
-    let totalPostsAvailable = 0; 
+    const postsPerPage = 10; 
+    let totalPosts = 0;
+    let currentPage = 1;
 
-    function fetchPosts(offset = 0, perPage = 10) {
-        fetch(`https://www.blogg.journeywithrob.com/wp-json/wp/v2/posts?_embed&per_page=${perPage}&offset=${offset}`)
-            .then(response => response.json())
+    // Function to fetch posts
+    function fetchPosts(page) {
+        fetch(`https://blogg.journeywithrob.com/wp-json/wp/v2/posts?page=${page}&per_page=${postsPerPage}&_embed`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                totalPosts = parseInt(response.headers.get('X-WP-TotalPages'));
+                return response.json();
+            })
             .then(posts => {
                 posts.forEach(post => {
                     const postElement = document.createElement('div');
+                    postElement.className = 'post';
+
+                    // Check if post has a featured image
+                    const imageUrl = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url ? post._embedded['wp:featuredmedia'][0].source_url : 'placeholder-image-url.jpg';
+
                     postElement.innerHTML = `
-                        <a href="${post.link}" target="_blank">
-                            <div class="post-preview">
-                                <h2>${post.title.rendered}</h2>
-                                ${post.featured_media ? `<img src="${post._embedded['wp:featuredmedia'][0].source_url}" alt="${post.title.rendered}">` : ''}
-                                <p>${post.excerpt.rendered}</p>
-                            </div>
-                        </a>
+                        <h2>${post.title.rendered}</h2>
+                        <img src="${imageUrl}" alt="${post.title.rendered}" />
+                        <p>${post.excerpt.rendered}</p>
+                        <a href="post.html?postId=${post.id}" target="_blank">Read More</a>
                     `;
                     postsContainer.appendChild(postElement);
                 });
                 loadedPosts += posts.length;
-                if (loadedPosts >= totalPostsAvailable) {
+                if (currentPage >= totalPosts) {
                     loadMoreBtn.style.display = 'none';
                 }
-                if (loadedPosts > initialLoad) {
-                    showLessBtn.style.display = 'inline';
-                }
             })
-            .catch(error => console.error('Error loading posts:', error));
+            .catch(error => {
+                console.error('Error fetching posts:', error);
+            });
     }
 
-    function loadMorePosts() {
-        fetchPosts(loadedPosts, initialLoad);
-    }
+    // Event listeners for Load More and Show Less buttons
+    loadMoreBtn.addEventListener('click', () => {
+        currentPage++;
+        fetchPosts(currentPage);
+    });
 
-    function showLess() {
-        while (postsContainer.firstChild && loadedPosts > initialLoad) {
-            postsContainer.removeChild(postsContainer.lastChild);
-            loadedPosts--;
-        }
-        showLessBtn.style.display = 'none';
-        loadMoreBtn.style.display = 'inline';
-    }
+    showLessBtn.addEventListener('click', () => {
+        postsContainer.innerHTML = ''; 
+        loadedPosts = 0; 
+        currentPage = 1; 
+        fetchPosts(currentPage); 
+        loadMoreBtn.style.display = 'block'; 
+    });
 
-    // Initially load posts
-    fetchPosts(0, initialLoad);
-
-    // Append buttons after the postsContainer
-    postsContainer.after(loadMoreBtn);
-    postsContainer.after(showLessBtn);
-
-    loadMoreBtn.addEventListener('click', loadMorePosts);
-    showLessBtn.addEventListener('click', showLess);
+    // Initially load the first set of posts
+    fetchPosts(currentPage);
 });
+
+
+
 
 
 

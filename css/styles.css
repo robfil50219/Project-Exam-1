@@ -374,26 +374,42 @@ button {
 
 /*All Posts*/ 
 
-.all-posts-container {
+.all-posts-main { 
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
 }
 
-#loadMoreBtn {
+.all-posts-container {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+}
+
+.all-posts-container .post {
+  width: 300px; 
+  margin: 10px; 
+}
+
+.all-posts-container .post img {
+  max-width: 100%; 
+  height: auto; 
+}
+
+#loadMoreBtn,
+#showLessBtn {
   display: block;
-  width: 200px;
   margin: 20px auto;
-  padding: 10px;
-  font-size: 16px;
+  padding: 10px 20px; 
+  background-color: #007bff; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
   cursor: pointer;
 }
- 
-    
-  
- 
+
+#loadMoreBtn:hover,
+#showLessBtn:hover {
+  background-color: #0056b3; 
+}
   /* YouTube Video */
 .video-responsive {
   overflow:hidden;

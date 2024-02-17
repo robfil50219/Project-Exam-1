@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const showLessBtn = document.getElementById('showLessBtn'); 
 
-    let loadLimit = 10;
+    let loadLimit = 20;
     let loadedPosts = 0;
-    let initialLoad = 10; // Initial number of posts to show
+    let initialLoad = 5; 
 
     showLessBtn.style.display = 'none';
 
