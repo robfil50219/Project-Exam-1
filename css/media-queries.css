@@ -51,8 +51,20 @@
     padding: 10px; 
   }
 
-  .carousel {
+  #latest-posts {
     display: none;
   }
 
 }
+
+
+
+
+/* Scale down the content for screens wider than 1024px */
+@media (min-width: 1024px) {
+  .carousel {
+    transform: scale(0.8); 
+    transform-origin: center; 
+  }
+}
+
