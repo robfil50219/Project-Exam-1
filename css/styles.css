@@ -286,6 +286,8 @@ button {
 .post-title {
   font-size: 24px;
   color: #333;
+  padding-left: 10px;
+  padding-top: 20px;
 }
 
 .post-meta {
