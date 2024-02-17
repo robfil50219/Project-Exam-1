@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const postsContainer = document.getElementById('postsContainer');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const showLessBtn = document.getElementById('showLessBtn');
-    const sortSelect = document.getElementById('sortPosts');
 
     let loadedPosts = 0;
     const postsPerPage = 10; 
@@ -67,29 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchPosts(currentPage); 
     });
 
-    // Event listener for sorting select
-    sortSelect.addEventListener('change', function() {
-        sortPosts(this.value);
-    });
-
-    // Function to sort posts
-    function sortPosts(criteria) {
-        const posts = [...postsContainer.querySelectorAll('.post')];
-        posts.sort((a, b) => {
-            const dateA = new Date(a.querySelector('.post-date').textContent);
-            const dateB = new Date(b.querySelector('.post-date').textContent);
-            return criteria === 'newest' ? dateB - dateA : dateA - dateB;
-        });
-        postsContainer.innerHTML = '';
-        posts.forEach(post => {
-            postsContainer.appendChild(post);
-        });
-    }
-
     // Initially load the first set of posts
     fetchPosts(currentPage);
 });
-
 
 
 
