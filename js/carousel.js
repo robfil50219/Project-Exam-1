@@ -20,7 +20,7 @@ async function fetchImagesForCarousel() {
         return {
           url: media.source_url,
           alt: media.alt_text || 'Post image',
-          postId: post.id // Assuming post ID is used to construct the URL
+          postId: post.id 
         };
       });
 
@@ -43,7 +43,7 @@ function createImageGroups(images) {
 
     images.slice(i, i + groupSize).forEach(image => {
       const linkElement = document.createElement('a');
-      linkElement.href = `post.html?postId=${image.postId}`; // URL construction
+      linkElement.href = `post.html?postId=${image.postId}`; 
       linkElement.target = '_blank';
 
       const imgElement = document.createElement('img');
