@@ -210,6 +210,12 @@ button {
     overflow: hidden;
 
   }
+
+  .image-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+  }
   
   .carousel img:hover {
     transform: scale(1.1);
