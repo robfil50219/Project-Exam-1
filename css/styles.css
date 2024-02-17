@@ -18,11 +18,11 @@ header {
     border-bottom: 1px solid black;
     grid-template-columns: auto 1fr auto; 
     height: 100px;
+    padding-bottom: 20px;
     align-items: center; 
     justify-items: center;
     background-color: #87DCCD; 
     color: black; 
-    padding: 10px 20px; 
     text-align: center; 
     grid-row-start: 1;
 
@@ -211,12 +211,7 @@ button {
 
   }
 
-  .image-group {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around; 
-  }
-  
+
   .carousel img:hover {
     transform: scale(1.1);
     z-index: 2;
