@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const postsContainer = document.getElementById('postsContainer');
     const loadMoreBtn = document.getElementById('loadMoreBtn');
     const showLessBtn = document.getElementById('showLessBtn');
+    const sortSelect = document.getElementById('sortPosts');
 
     let loadedPosts = 0;
     const postsPerPage = 10; 
@@ -37,6 +38,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 loadedPosts += posts.length;
                 if (currentPage >= totalPosts) {
                     loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block'; // Ensure loadMoreBtn is visible if there are more posts
+                }
+                // Toggle the buttons based on the number of loaded posts
+                if (loadedPosts > postsPerPage) {
+                    showLessBtn.style.display = 'block';
+                } else {
+                    showLessBtn.style.display = 'none';
                 }
             })
             .catch(error => {
@@ -44,23 +53,44 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
-    // Event listeners for Load More and Show Less buttons
+    // Event listener for Load More button
     loadMoreBtn.addEventListener('click', () => {
         currentPage++;
         fetchPosts(currentPage);
     });
 
+    // Event listener for Show Less button
     showLessBtn.addEventListener('click', () => {
         postsContainer.innerHTML = ''; 
         loadedPosts = 0; 
         currentPage = 1; 
         fetchPosts(currentPage); 
-        loadMoreBtn.style.display = 'block'; 
     });
+
+    // Event listener for sorting select
+    sortSelect.addEventListener('change', function() {
+        sortPosts(this.value);
+    });
+
+    // Function to sort posts
+    function sortPosts(criteria) {
+        const posts = [...postsContainer.querySelectorAll('.post')];
+        posts.sort((a, b) => {
+            const dateA = new Date(a.querySelector('.post-date').textContent);
+            const dateB = new Date(b.querySelector('.post-date').textContent);
+            return criteria === 'newest' ? dateB - dateA : dateA - dateB;
+        });
+        postsContainer.innerHTML = '';
+        posts.forEach(post => {
+            postsContainer.appendChild(post);
+        });
+    }
 
     // Initially load the first set of posts
     fetchPosts(currentPage);
 });
+
+
 
 
 

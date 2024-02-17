@@ -396,7 +396,6 @@ button {
 
 #loadMoreBtn,
 #showLessBtn {
-  display: block;
   margin: 20px auto;
   padding: 10px 20px; 
   background-color: #007bff; 
@@ -405,6 +404,7 @@ button {
   border-radius: 5px; 
   cursor: pointer;
 }
+
 
 #loadMoreBtn:hover,
 #showLessBtn:hover {
