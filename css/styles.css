@@ -390,14 +390,15 @@ button {
 
 /*All Posts*/ 
 
-.all-posts-main { 
+.all-posts-main {
   display: flex;
 }
+
 
 .all-posts-container {
   display: flex; 
   flex-wrap: wrap; 
-  justify-content: center; 
+  justify-content: center; /
 }
 
 .all-posts-container .post {
@@ -409,16 +410,19 @@ button {
   max-width: 100%; 
   height: auto; 
 }
-
 #loadMoreBtn,
 #showLessBtn {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px; 
+  width: 120px; 
+  height: 40px; 
   background-color: #007bff; 
-  color: #fff; 
-  border: none; 
-  border-radius: 5px; 
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 10px auto; 
+  font-size: 16px;
   cursor: pointer;
   border-radius: 5px;
 }
@@ -427,6 +431,8 @@ button {
 #showLessBtn:hover {
   background-color: #0056b3; 
 }
+
+ 
   /* YouTube Video */
 .video-responsive {
   overflow:hidden;
