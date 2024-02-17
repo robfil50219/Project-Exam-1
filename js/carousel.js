@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 async function fetchImagesForCarousel() {
   const carousel = document.querySelector('#carousel');
-  const page = 1; // Start from the first page
-  const postsPerPage = 8; // Adjust based on how many posts you want to fetch at once
+  const page = 1; 
+  const postsPerPage = 8
 
   try {
     const response = await fetch(`https://blogg.journeywithrob.com/wp-json/wp/v2/posts?page=${page}&per_page=${postsPerPage}&_embed`);
@@ -42,7 +42,7 @@ function createImageGroups(images) {
   for (let i = 0; i < images.length; i += groupSize) {
     const imageGroup = document.createElement('div');
     imageGroup.className = 'image-group';
-    if (i === 0) imageGroup.classList.add('active'); // Make the first group active by default
+    if (i === 0) imageGroup.classList.add('active'); 
 
     images.slice(i, i + groupSize).forEach(image => {
       const imgElement = document.createElement('img');
