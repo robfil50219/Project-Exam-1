@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let totalPostsAvailable = 0; 
 
     function fetchPosts(offset = 0, perPage = 10) {
-        fetch(`https://www.journeywithrob.com/wp-json/wp/v2/posts?_embed&per_page=${perPage}&offset=${offset}`)
+        fetch(`https://www.blogg.journeywithrob.com/wp-json/wp/v2/posts?_embed&per_page=${perPage}&offset=${offset}`)
             .then(response => response.json())
             .then(posts => {
                 posts.forEach(post => {
