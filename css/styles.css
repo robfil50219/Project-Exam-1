@@ -198,8 +198,9 @@ button {
   }
   
   .image-group img {
-    width: 400px;
-    height: 300px;
+    width: 100%; 
+    max-width: 400px; 
+    height: auto; 
     transition: opacity 1s ease, transform 0.5s ease; 
     margin: 20px;
     cursor: pointer;
