@@ -1,88 +1,57 @@
 document.addEventListener('DOMContentLoaded', function() {
-  fetchImagesForCarousel();
+  const postWrapper = document.querySelector('.post-wrapper');
+  const prevBtn = document.querySelector('.arrow.prev');
+  const nextBtn = document.querySelector('.arrow.next');
 
+  let currentPage = 1;
+  const postsPerPage = 4;
 
-async function fetchImagesForCarousel() {
-  const carousel = document.querySelector('#carousel');
-  const page = 1; // Adjust if you want to start from a different page
-  const postsPerPage = 8; // Adjust based on how many posts you want to fetch
+  // Fetch and display initial set of posts
+  fetchAndDisplayPosts(currentPage);
 
-  try {
-    const response = await fetch(`https://blogg.journeywithrob.com/wp-json/wp/v2/posts?page=${page}&per_page=${postsPerPage}&_embed`);
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    const posts = await response.json();
+  // Event listeners for navigation buttons
+  prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) {
+          currentPage--;
+          fetchAndDisplayPosts(currentPage);
+      }
+  });
 
-    const images = posts.filter(post => post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'].length > 0)
-      .map(post => {
-        const media = post._embedded['wp:featuredmedia'][0];
-        return {
-          url: media.source_url,
-          alt: media.alt_text || 'Post image',
-          postId: post.id 
-        };
-      });
+  nextBtn.addEventListener('click', () => {
+      currentPage++;
+      fetchAndDisplayPosts(currentPage);
+  });
 
-    createImageGroups(images);
-    initializeCarousel();
-  } catch (error) {
-    console.error('Error fetching images:', error);
+  // Function to fetch and display posts
+  async function fetchAndDisplayPosts(page) {
+      try {
+          const response = await fetch(`https://blogg.journeywithrob.com/wp-json/wp/v2/posts?page=${page}&per_page=${postsPerPage}&_embed`);
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+          const posts = await response.json();
+
+          // Clear previous posts
+          postWrapper.innerHTML = '';
+
+          // Populate posts
+          posts.forEach(post => {
+              const postElement = document.createElement('div');
+              postElement.classList.add('post');
+              postElement.innerHTML = `
+                  <h3>${post.title.rendered}</h3>
+                  <p>${post.excerpt.rendered}</p>
+                  <a href="post.html?postId=${post.id}" target="_blank">Read More</a>
+              `;
+              postWrapper.appendChild(postElement);
+          });
+      } catch (error) {
+          console.error('Error fetching or displaying posts:', error);
+      }
   }
-}
-
-function createImageGroups(images) {
-  const carousel = document.querySelector('#carousel');
-  carousel.innerHTML = '';
-
-  const groupSize = 4;
-  for (let i = 0; i < images.length; i += groupSize) {
-    const imageGroup = document.createElement('div');
-    imageGroup.className = 'image-group';
-    if (i === 0) imageGroup.classList.add('active');
-
-    images.slice(i, i + groupSize).forEach(image => {
-      const linkElement = document.createElement('a');
-      linkElement.href = `post.html?postId=${image.postId}`; 
-      linkElement.target = '_blank';
-
-      const imgElement = document.createElement('img');
-      imgElement.src = image.url;
-      imgElement.alt = image.alt;
-
-      linkElement.appendChild(imgElement);
-      imageGroup.appendChild(linkElement);
-    });
-
-    carousel.appendChild(imageGroup);
-  }
-}
-
-function initializeCarousel() {
-  const carousel = document.querySelector('#carousel');
-  const groups = document.querySelectorAll('.carousel .image-group');
-  let activeIndex = 0;
-  let interval;
-
-  function startInterval() {
-    interval = setInterval(() => {
-      groups[activeIndex].classList.remove('active');
-      activeIndex = (activeIndex + 1) % groups.length;
-      groups[activeIndex].classList.add('active');
-    }, 3000); // Change image every 3 seconds
-  }
-
-  function stopInterval() {
-    clearInterval(interval);
-  }
-
-  startInterval();
-  carousel.addEventListener('mouseenter', stopInterval);
-  carousel.addEventListener('mouseleave', startInterval);
-}
-
 });
-  
+
+
   
   
   

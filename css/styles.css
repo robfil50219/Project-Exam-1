@@ -127,7 +127,6 @@ button {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 10px; 
 }
 
 #hamburger-menu img {
@@ -139,8 +138,7 @@ button {
 #home-button {
   background: none;
   border: none;
-  cursor: pointer;
-  padding: 10px; 
+  cursor: pointer; 
   display: flex; 
   align-items: center; 
   justify-content: center; 
@@ -189,38 +187,70 @@ button {
 }
 
 /*carousel styles*/
+
+.latest-posts {
+  text-align: center;
+  margin-top: 20px;
+}
+
 .carousel {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-    border-bottom: 1px solid black;
-  }
-  
-  .image-group img {
-    width: 100%; 
-    max-width: 400px; 
-    height: auto; 
-    transition: opacity 1s ease, transform 0.5s ease; 
-    margin: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); 
-    border-radius: 10px;
-    border: 1px solid black;
-    overflow: hidden;
+  position: relative;
+  margin: 20px auto;
+  overflow: hidden;
+}
 
-  }
+.post-wrapper {
+  display: flex;
+  gap: 10px; 
+  transition: transform 0.5s ease-out;
+}
 
 
-  .carousel img:hover {
-    transform: scale(1.1);
-    z-index: 2;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8); 
+
+
+/* Arrow styles */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px; 
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 50%; 
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+.prev {
+  left: 30px;
+}
+
+.next {
+  right: 30px;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .carousel {
+    max-width: 90%; 
   }
-  
-  .image-group:not(.active) {
-    display: none;
+
+  .arrow {
+    padding: 8px 12px; 
   }
+}
+
+
+
   
 /* CSS for the new post */
 .new-post-container {
