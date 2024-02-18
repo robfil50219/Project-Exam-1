@@ -197,6 +197,7 @@ button {
   position: relative;
   margin: 20px auto;
   overflow: hidden;
+  align-content: center;
 }
 
 .post-wrapper {
@@ -211,8 +212,7 @@ button {
 /* Arrow styles */
 .arrow {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 40%;
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
@@ -447,23 +447,6 @@ button {
   cursor: pointer;
   border-radius: 5px;
 }
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000; 
-}
-
-.overlay img {
-  max-width: 90%;
-  max-height: 80%;
-}
 
 #loadMoreBtn:hover,
 #showLessBtn:hover {
@@ -548,6 +531,57 @@ button {
     margin-bottom: 40px;
 }
 
-  
+  /* Style the image modal */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content, #caption {  
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 
 
