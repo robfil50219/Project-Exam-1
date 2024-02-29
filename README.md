@@ -8,7 +8,7 @@ This is my Semester Exam submission. I was tasked with creating a blog. The blog
 
 ## Built With
 
-This site is built with Html,Css.
+This site is built with Html,Css,javascript,wordpress.
 
 ## Getting Started
 
