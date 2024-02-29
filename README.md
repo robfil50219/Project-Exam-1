@@ -1,6 +1,6 @@
 Journey With Rob
 
-![image](images/logo.png)
+![image](Images/logo.png)
 
 ## Description
 
